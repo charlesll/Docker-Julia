@@ -20,15 +20,31 @@ Charles Le Losq.
 * A [start.sh](../base-notebook/start.sh) script useful for running alternative commands in the container (e.g. `ipython`, `jupyter kernelgateway`, `jupyter lab`)
 * Options for a self-signed HTTPS certificate and passwordless `sudo`
 
-## Basic Use
+## Running the Python/Julia stuff in Docker
 
-The following command starts a container with the Notebook server listening for HTTP connections on port 8888 with a randomly generated authentication token configured.
+Starting guide at https://github.com/jupyter/docker-stacks/tree/master/datascience-notebook
 
-```
-docker run -it --rm -p 8888:8888 jupyter/datascience-notebook
-```
+Install docker, see Docker website for your system (available on Linux/Mac/Windows). Then in a terminal (see Docker guide for your operating system)
 
-Take note of the authentication token included in the notebook startup log messages. Include it in the URL you visit to access the Notebook server or enter it in the Notebook login form.
+	docker pull charlesll/julia:0.5.2_1
+
+Now you're ready to launch Docker. Create a working directory folder and get its path. For instance, in this example, I want to do some work on the Forsterite data so will name it /Users/charles/Labodata/SPECTROSCOPY/Infrared/Forsterite
+
+You can run the container with access to the folder by typing:
+
+	docker run -it --rm -p 8888:8888 -v /Users/charles/Labodata/SPECTROSCOPY/Infrared/Forsterite:/home/jovyan/work charlesll/julia
+
+From Jupyter notes: Take note of the authentication token included in the notebook startup log messages. Include it in the URL you visit to access the Notebook server or enter it in the Notebook login form.
+
+In practice copy-paste what the terminal tells you to copy, paste the link in the browser, and you're good to go!
+
+## Notes
+
+- Of course, change the /Users/charles/Desktop/TestNotebook to reflect your own working path. Do NOT change the /home/jovyan/work part, this is in the container.
+
+- It happened to me that the dowload of the docker container was stuck. Just relaunch it.
+
+- if it tells you that there is an error because port 8888 is already busy, just input another port like 7777 (change the 8888:8888 to 7777:7777 or 7777:8888 for instance)
 
 ## Notebook Options
 
