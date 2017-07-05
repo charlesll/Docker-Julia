@@ -32,7 +32,7 @@ Now you're ready to launch Docker. Create a working directory folder and get its
 
 You can run the container with access to the folder by typing:
 
-	docker run -it --rm -p 8888:8888 -v /Users/charles/Labodata/SPECTROSCOPY/Infrared/Forsterite:/home/jovyan/work charlesll/julia
+	docker run -it --rm -p 8888:8888 -v /Users/charles/Labodata/SPECTROSCOPY/Infrared/Forsterite:/home/jovyan/work charlesll/julia:0.5.2_1
 
 From Jupyter notes: Take note of the authentication token included in the notebook startup log messages. Include it in the URL you visit to access the Notebook server or enter it in the Notebook login form.
 
