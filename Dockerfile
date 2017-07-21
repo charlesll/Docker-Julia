@@ -45,6 +45,7 @@ RUN julia -e 'Pkg.init()' && \
     julia -e 'Pkg.update()' && \
     julia -e 'Pkg.add("HDF5")' && \
     julia -e 'Pkg.add("Gadfly")' && \
+	julia -e 'Pkg.add("Convex")' && \
     julia -e 'Pkg.add("RDatasets")' && \
     julia -e 'Pkg.add("IJulia")' && \
     julia -e 'Pkg.add("Ipopt")' && \
@@ -57,8 +58,11 @@ RUN julia -e 'Pkg.init()' && \
     julia -e 'Pkg.add("DataFrames")' && \
     julia -e 'Pkg.add("JLD")' && \
     julia -e 'Pkg.add("Plots")' && \
+    julia -e 'Pkg.add("PyCall")' && \
     julia -e 'Pkg.add("PyPlot")' && \
     julia -e 'Pkg.add("ExcelReaders")' && \
+    julia -e 'Pkg.add("Dierckx")' && \
+    julia -e 'Pkg.add("ProgressMeter")' && \
     # Updating everything
     julia -e 'Pkg.update()' && \
     # Precompile Julia packages \

@@ -26,13 +26,13 @@ Starting guide at https://github.com/jupyter/docker-stacks/tree/master/datascien
 
 Install docker, see Docker website for your system (available on Linux/Mac/Windows). Then in a terminal (see Docker guide for your operating system)
 
-	docker pull charlesll/julia:0.5.2_1
+	docker pull charlesll/julia:latest
 
 Now you're ready to launch Docker. Create a working directory folder and get its path. For instance, in this example, I want to do some work on the Forsterite data so will name it /Users/charles/Labodata/SPECTROSCOPY/Infrared/Forsterite
 
 You can run the container with access to the folder by typing:
 
-	docker run -it --rm -p 8888:8888 -v /Users/charles/Labodata/SPECTROSCOPY/Infrared/Forsterite:/home/jovyan/work charlesll/julia:0.5.2_1
+	docker run -it --rm -p 8888:8888 -v /Users/charles/Labodata/SPECTROSCOPY/Infrared/Forsterite:/home/jovyan/work charlesll/julia:latest
 
 From Jupyter notes: Take note of the authentication token included in the notebook startup log messages. Include it in the URL you visit to access the Notebook server or enter it in the Notebook login form.
 
