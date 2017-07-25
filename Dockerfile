@@ -18,6 +18,8 @@ RUN apt-get update && \
     gcc && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+RUN pip install gcvspline
+
 # Julia dependencies
 # install Julia packages in /opt/julia instead of $HOME
 ENV JULIA_PKGDIR=/opt/julia
@@ -63,6 +65,7 @@ RUN julia -e 'Pkg.init()' && \
     julia -e 'Pkg.add("ExcelReaders")' && \
     julia -e 'Pkg.add("Dierckx")' && \
     julia -e 'Pkg.add("ProgressMeter")' && \
+    julia -e 'Pkg.add("SCS")' && \
     # Updating everything
     julia -e 'Pkg.update()' && \
     # Precompile Julia packages \
