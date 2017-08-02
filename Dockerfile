@@ -19,6 +19,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 RUN pip install gcvspline
+RUN pip install rampy
 
 # Julia dependencies
 # install Julia packages in /opt/julia instead of $HOME
@@ -73,6 +74,7 @@ RUN julia -e 'Pkg.init()' && \
     julia -e 'using Gadfly' && \
     julia -e 'using RDatasets' && \
     julia -e 'using IJulia' && \
+	julia -e 'using Spectra' && \
     # move kernelspec out of home \
     mv $HOME/.local/share/jupyter/kernels/julia* $CONDA_DIR/share/jupyter/kernels/ && \
     chmod -R go+rx $CONDA_DIR/share/jupyter && \

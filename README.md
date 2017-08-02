@@ -6,14 +6,22 @@ This is a modification of the Jupyter Data Science Stack Docker file to include 
 
 I removed the R packages as this is aimed at Julia. I invite to use the awesome data science stack from Jupyter if you want R in docker.
 
+Important notes:
+
+Use Python 3 kernel to try rampy and gcvspline.
+
+Spectra works fairly well with the Julia kernel.
+
 Charles Le Losq.
 
 ## What it Gives You
 
 * Jupyter Notebook 5.0.x
-* Conda Python 3.x and Python 2.7.x environments
-* pandas, matplotlib, scipy, seaborn, scikit-learn, scikit-image, sympy, cython, patsy, statsmodel, cloudpickle, dill, numba, bokeh pre-installed
-* Julia v0.5.x with Gadfly, RDatasets and HDF5  as well as many other packages pre-installed
+
+* Conda Python 3.x and Python 2.7.x environments (Python 3.x recommended to use with Rampy and GCVspline)
+
+* pandas, matplotlib, scipy, seaborn, scikit-learn, scikit-image, sympy, cython, patsy, statsmodel, cloudpickle, dill, numba, bokeh, rampy, gcvspline pre-installed
+* Julia v0.5.x with Gadfly, RDatasets, HDF5, JuMP, Ipopt, Spectra and many other packages pre-installed
 * Unprivileged user `jovyan` (uid=1000, configurable, see options) in group `users` (gid=100) with ownership over `/home/jovyan` and `/opt/conda`
 * [tini](https://github.com/krallin/tini) as the container entrypoint and [start-notebook.sh](../base-notebook/start-notebook.sh) as the default command
 * A [start-singleuser.sh](../base-notebook/start-singleuser.sh) script useful for running a single-user instance of the Notebook server, as required by JupyterHub
